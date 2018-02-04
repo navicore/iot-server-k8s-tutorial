@@ -1,0 +1,54 @@
+@startuml
+
+Title Context Switching is Costly
+'footer: Context Switching
+legend
+  Sv = save state to buffer
+  Ld = load state from buffer
+end legend
+
+concise "Process 1" as P1
+concise "OS" as OS
+concise "Process 2" as P2
+
+@0
+P1@0 <-> @1 : processing
+P1 is Active
+OS is Idle
+P2 is Idle
+
+@+1
+P1 is Idle
+OS is "Sv P1"
+P2 is Idle
+
+@+1
+P1 is Idle
+OS is "Ld P2"
+P2 is Idle
+
+@+1
+P1 is Idle
+OS is Idle
+P2@3 <-> @4 : processing
+P2 is Active
+
+@+1
+P1 is Idle
+OS is "Sv P2"
+P2 is Idle
+
+@+1
+P1 is Idle
+OS is "Ld P1"
+P2 is Idle
+
+@+1
+P1@6 <-> @7 : processing
+P1 is Active
+OS is Idle
+P2 is Idle
+
+
+@+1
+@enduml

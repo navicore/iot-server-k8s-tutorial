@@ -1,0 +1,31 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: iot-server-demo
+  name: iot-server-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: iot-server-demo
+  template:
+    metadata:
+      labels:
+        run: iot-server-demo
+    spec:
+      containers:
+      - name: iot-server-demo
+        image: navicore/iot-server-demo:cassandra
+        env:
+        - name: CASSANDRA_HOST
+          value: "my-cassandra"
+        - name: BOOTSTRAP
+          value: "my-kafka:9092"
+        - name: CONSUMER_GROUP
+          value: "IotDemoServerStreamer"
+        ports:
+        - containerPort: 2551
+          protocol: TCP
+        - containerPort: 8080
+          protocol: TCP

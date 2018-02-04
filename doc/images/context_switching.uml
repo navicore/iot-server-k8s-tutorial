@@ -1,0 +1,46 @@
+@startuml
+
+Title Context Switching can be Expensive
+
+robust "Process 1" as P1
+robust "OS Context Switching" as OS
+robust "Process 2" as P2
+
+@0
+P1 is Idle
+OS is Idle
+P2 is Idle
+
+
+@+1
+OS -> P1 : In
+P1 is Active
+OS is Idle
+P2 is Idle
+
+@+1
+P1 is Idle
+OS is "save P1 state to buffer"
+P1 -> OS : Out
+P2 is Idle
+
+@+1
+P1 is Idle
+OS is "load P2 state from buffer"
+P2 is Idle
+
+@+1
+P1 is Idle
+OS is Idle
+OS -> P2 : In
+P2 is Active
+
+@+1
+P1 is Idle
+OS is "save P2 state to buffer"
+P2 -> OS : Out
+P2 is Idle
+
+
+@+1
+@enduml
