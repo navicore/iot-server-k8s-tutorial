@@ -20,7 +20,7 @@ Prerequisites:
   * installed `kubectl`
   * any Kubernetes cluster >= 1.8.x (see K8S.md for instructions for creating a cluster on Azure)
 
-### [Begin Lab!](doc/AKS.md) - setup aks
+### [Chapter 0 Begin Lab!](doc/AKS.md) - setup aks
 
 ### [Chapter 1](doc/chapter_01/README.md) - kubectl run
 
