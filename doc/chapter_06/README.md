@@ -15,10 +15,10 @@ export PATH=~./bin:$PATH
 istioctl -h
 ```
 
-install istio into your cluster with mutual auth enabled
+install istio into your cluster
 
 ```console
-kubectl apply -f install/kubernetes/istio-auth.yaml
+kubectl apply -f install/kubernetes/istio.yaml
 ```
 
 ```console
