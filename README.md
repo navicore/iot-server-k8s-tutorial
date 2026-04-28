@@ -1,3 +1,8 @@
+<!-- ghmig:moved -->
+> **This repository has moved to [https://git.navicore.tech/navicore/iot-server-k8s-tutorial](https://git.navicore.tech/navicore/iot-server-k8s-tutorial).**
+>
+> The GitHub copy is archived and no longer maintained.
+
 IOT Server K8S Tutorial
 ---
 
